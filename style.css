@@ -98,6 +98,9 @@ a{color:inherit}
   box-shadow:
     0 0 0 7px rgba(255,255,255,.025),
     0 20px 55px rgba(0,0,0,.48);
+  display:flex;
+  align-items:center;
+  justify-content:center;
   animation:logoEnter .8s cubic-bezier(.2,.75,.25,1) both, logoFloat 5s 1s ease-in-out infinite;
 }
 
@@ -126,12 +129,15 @@ a{color:inherit}
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center center;
-  transform:scale(1.35);
-  transition:transform .55s cubic-bezier(.2,.75,.25,1);
+  object-position:center;
+  transform:translateY(-3px) scale(1.10);
+  transform-origin:center;
+  transition:transform .45s cubic-bezier(.2,.75,.25,1);
 }
 
-.logo-crop:hover .logo-image{transform:scale(1.42)}
+.logo-crop:hover .logo-image{
+  transform:translateY(-3px) scale(1.14);
+}
 
 .eyebrow{
   margin:0 0 12px;
@@ -353,6 +359,8 @@ footer{
   .page-shell{padding-left:14px;padding-right:14px;padding-top:22px}
   .hero{padding-top:18px;padding-bottom:25px}
   .logo-crop{width:132px;height:132px;margin-bottom:21px}
+  .logo-image{transform:translateY(-3px) scale(1.10)}
+  .logo-crop:hover .logo-image{transform:translateY(-3px) scale(1.14)}
   .eyebrow{font-size:10px;letter-spacing:.16em}
   h1{font-size:clamp(35px,10vw,47px)}
   .intro{font-size:14px;max-width:360px}
