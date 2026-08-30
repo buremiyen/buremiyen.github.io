@@ -18,7 +18,7 @@ body{
     radial-gradient(circle at top, rgba(255,255,255,.06), transparent 30%),
     linear-gradient(180deg, #0b0d10 0%, #090b0e 100%);
   color:var(--text);
-  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
@@ -35,34 +35,46 @@ a{color:inherit}
 }
 
 .hero{
-  padding:28px 8px 24px;
+  padding:24px 8px 24px;
   display:flex;
   flex-direction:column;
   align-items:center;
   text-align:center;
 }
 
+.logo-crop{
+  width:min(250px,68vw);
+  aspect-ratio:2.5/1;
+  overflow:hidden;
+  margin:0 auto 20px;
+}
+
 .logo-image{
   display:block;
-  width:min(210px,56vw);
-  height:auto;
-  margin:0 auto 18px;
-  object-fit:contain;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 53%;
 }
 
 .eyebrow{
   margin:0 0 12px;
   font-size:12px;
-  letter-spacing:.22em;
+  line-height:1.5;
+  letter-spacing:.20em;
   color:var(--muted);
 }
 
 h1{
+  width:100%;
+  max-width:680px;
   margin:0;
   font-size:clamp(36px,8vw,60px);
   line-height:1.02;
   font-weight:800;
-  letter-spacing:-.05em;
+  letter-spacing:-.045em;
+  text-align:center;
+  text-wrap:balance;
 }
 
 .intro{
@@ -81,13 +93,13 @@ h1{
 
 .link-card{
   display:grid;
-  grid-template-columns:52px 1fr auto;
+  grid-template-columns:52px minmax(0,1fr) auto;
   gap:16px;
   align-items:center;
   min-height:88px;
   padding:16px 18px;
   border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+  background:rgba(255,255,255,.025);
   border-radius:var(--radius);
   text-decoration:none;
   box-shadow:var(--shadow);
@@ -98,7 +110,7 @@ h1{
 .link-card:focus-visible{
   transform:translateY(-2px);
   border-color:#3a4554;
-  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+  background:rgba(255,255,255,.045);
   outline:none;
 }
 
@@ -120,7 +132,7 @@ h1{
   fill:currentColor;
 }
 
-.behance{background:#0057ff}
+.behance{background:#1769ff}
 .linkedin{background:#0a66c2}
 .instagram{background:#e1306c}
 .github{background:#111111}
@@ -128,6 +140,7 @@ h1{
 .email{background:#3e4653}
 
 .copy{
+  min-width:0;
   display:grid;
   gap:4px;
 }
@@ -139,6 +152,8 @@ h1{
 }
 
 .copy small{
+  min-width:0;
+  overflow-wrap:anywhere;
   font-size:13px;
   color:var(--muted);
 }
@@ -164,12 +179,28 @@ footer{
 
 @media (max-width:560px){
   .page-shell{padding-left:14px;padding-right:14px}
-  .hero{padding-top:24px}
-  .logo-image{width:min(190px,62vw);margin-bottom:16px}
-  .eyebrow{font-size:11px;line-height:1.5}
-  .link-card{grid-template-columns:48px 1fr auto;min-height:82px;padding:14px}
+  .hero{padding-top:20px}
+  .logo-crop{width:min(220px,72vw);margin-bottom:18px}
+  .eyebrow{font-size:10px;letter-spacing:.16em}
+  h1{font-size:clamp(34px,10vw,46px)}
+  .intro{font-size:14px}
+  .link-card{
+    grid-template-columns:48px minmax(0,1fr) auto;
+    min-height:82px;
+    padding:14px;
+    gap:13px;
+  }
   .icon-wrap{width:48px;height:48px;border-radius:14px}
   .icon-wrap svg{width:22px;height:22px}
+  .copy strong{font-size:17px}
+  .copy small{font-size:12px}
+}
+
+@media (max-width:380px){
+  .page-shell{padding-left:10px;padding-right:10px}
+  .link-card{grid-template-columns:44px minmax(0,1fr) auto;padding:12px;gap:10px}
+  .icon-wrap{width:44px;height:44px;border-radius:13px}
+  .arrow{font-size:17px}
 }
 
 @media (prefers-reduced-motion:reduce){
