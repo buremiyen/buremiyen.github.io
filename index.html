@@ -1,112 +1,316 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="color-scheme" content="dark" />
-  <meta name="format-detection" content="telephone=no" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Burhan Emin Yenier — Graphic Designer, 3D Artist and Game Developer.">
+<meta property="og:title" content="Burhan Emin Yenier">
+<meta property="og:description" content="Graphic Designer · 3D Artist · Game Developer">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://buremiyen.github.io/">
+<meta property="og:image" content="https://buremiyen.github.io/IMG_0271.jpg">
+<link rel="canonical" href="https://buremiyen.github.io/">
+<link rel="icon" href="IMG_0271.jpg">
+<link rel="apple-touch-icon" href="IMG_0271.jpg">
+<title>Burhan Emin Yenier</title>
+<style>
+:root {
+  --text:#f5f5f7;
+  --muted:#8e8e93;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+* { box-sizing:border-box; }
+html,body {
+  margin:0;
+  background:#000;
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+}
+body {
+  min-height:100svh;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 50% -8%,rgba(255,255,255,.10),transparent 25%),
+    radial-gradient(circle at 12% 35%,rgba(255,255,255,.025),transparent 20%),
+    radial-gradient(circle at 88% 72%,rgba(255,255,255,.018),transparent 22%),
+    #000;
+  -webkit-font-smoothing:antialiased;
+}
+.page {
+  width:min(720px,100%);
+  margin:0 auto;
+  padding:14px 10px calc(30px + env(safe-area-inset-bottom));
+}
 
-  <meta name="description" content="Burhan Emin Yenier — Graphic Designer, 3D Artist and Game Developer." />
-  <meta property="og:title" content="Burhan Emin Yenier" />
-  <meta property="og:description" content="Graphic Designer, 3D Artist and Game Developer." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://buremiyen.github.io/" />
-  <meta property="og:image" content="https://buremiyen.github.io/IMG_0271.jpg" />
+.profile-card {
+  position:relative;
+  z-index:10;
+  min-height:360px;
+  overflow:hidden;
+  border-radius:34px;
+  border:1px solid rgba(255,255,255,.13);
+  background:
+    radial-gradient(circle at 50% 18%,rgba(255,255,255,.10),transparent 22%),
+    radial-gradient(circle at 14% 12%,rgba(255,255,255,.05),transparent 24%),
+    linear-gradient(145deg,#171719,#080809);
+  box-shadow:0 28px 90px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.12);
+  transition:transform .8s var(--ease),opacity .7s ease,filter .7s ease;
+}
+.profile-card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(145deg,rgba(255,255,255,.15),transparent 38%,rgba(255,255,255,.025) 74%);
+}
+.profile-inner {
+  position:relative;
+  z-index:1;
+  min-height:360px;
+  padding:30px 20px 26px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.logo-ring {
+  width:108px;
+  height:108px;
+  margin-bottom:22px;
+  border-radius:50%;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  background:#050506;
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 18px 52px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.logo-ring img { width:86%; height:auto; display:block; }
+.profile-name { margin:0; font-size:clamp(30px,7vw,48px); line-height:1.02; font-weight:700; letter-spacing:-.05em; }
+.profile-role { margin:14px 0 0; color:rgba(255,255,255,.84); font-size:15px; line-height:1.5; }
+.profile-chip { margin-top:19px; padding:8px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.05); color:rgba(255,255,255,.65); font-size:10px; letter-spacing:.10em; }
 
-  <link rel="canonical" href="https://buremiyen.github.io/" />
-  <link rel="icon" href="IMG_0271.jpg" />
-  <link rel="apple-touch-icon" href="IMG_0271.jpg" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Burhan Emin Yenier</title>
+.stack-section { position:relative; z-index:1; margin-top:-34px; }
+.wallet { position:relative; height:520px; perspective:1200px; }
+.card {
+  --i:0;
+  --peek:58px;
+  --base:-22px;
+  position:absolute;
+  left:0;
+  right:0;
+  top:calc(var(--base) + var(--i) * var(--peek));
+  height:126px;
+  overflow:hidden;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 18px 50px rgba(0,0,0,.44), inset 0 1px 0 rgba(255,255,255,.10);
+  transition:height .42s var(--ease), transform .42s var(--ease), box-shadow .32s ease, opacity .55s ease, filter .55s ease;
+  cursor:pointer;
+  user-select:none;
+  touch-action:manipulation;
+}
+.card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(145deg,rgba(255,255,255,.15),transparent 38%,rgba(255,255,255,.025) 76%);
+}
+.card[data-order="0"] { z-index:6; }
+.card[data-order="1"] { z-index:5; }
+.card[data-order="2"] { z-index:4; }
+.card[data-order="3"] { z-index:3; }
+.card[data-order="4"] { z-index:2; }
+.card[data-order="5"] { z-index:1; }
+.card:hover { box-shadow:0 24px 74px rgba(0,0,0,.56), inset 0 1px 0 rgba(255,255,255,.14); }
+.card.active {
+  height:156px;
+  box-shadow:0 28px 82px rgba(0,0,0,.60), inset 0 1px 0 rgba(255,255,255,.18);
+}
+.card.shifted {
+  transform:translateY(30px);
+}
+.card.active .row {
+  transform:translateY(18px);
+}
+.card.active .open { transform:scale(1.05); background:rgba(255,255,255,.18); }
+.card.active .copy strong { transform:translateY(1px); }
+
+.row {
+  position:relative;
+  z-index:1;
+  height:100%;
+  padding:70px 16px 14px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  transition:transform .42s var(--ease);
+}
+.left { min-width:0; display:flex; align-items:center; gap:12px; }
+.icon {
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:rgba(0,0,0,.22);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 6px 16px rgba(0,0,0,.18);
+  color:#fff;
+}
+.icon svg { width:22px; height:22px; display:block; fill:currentColor; }
+.icon svg.stroke { fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.behance-mark { font-size:18px; line-height:1; font-weight:800; letter-spacing:-.06em; transform:translateY(-1px); }
+.copy { min-width:0; }
+.copy strong { display:block; font-size:16px; line-height:1.05; font-weight:700; letter-spacing:-.02em; transition:transform .35s var(--ease); }
+.copy small { display:block; margin-top:4px; color:rgba(255,255,255,.72); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.open {
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.14);
+  color:#fff;
+  font-size:18px;
+  transition:transform .35s var(--ease), background .35s ease;
+}
+
+.behance { background:linear-gradient(145deg,#1769ff,#0d3c94); }
+.linkedin { background:linear-gradient(145deg,#0a66c2,#07345f); }
+.instagram { background:linear-gradient(145deg,#833ab4,#e1306c 50%,#f77737); }
+.github { background:linear-gradient(145deg,#2b3137,#0d1117); }
+.pinterest { background:linear-gradient(145deg,#e60023,#860014); }
+.email { background:linear-gradient(145deg,#38383b,#171719); }
+
+.status { min-height:16px; margin-top:10px; text-align:center; color:#8e8e93; font-size:11px; }
+.hint { margin-top:8px; text-align:center; color:#65656a; font-size:11px; }
+footer { margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,.06); display:flex; justify-content:space-between; gap:12px; color:#505055; font-size:11px; }
+
+body.loading .profile-card { opacity:0; filter:blur(10px); transform:translateY(26px) scale(.985); }
+body.loading .card { opacity:0; filter:blur(8px); transform:translateY(28px); }
+body.loading .card[data-order="0"] { transition-delay:.08s; }
+body.loading .card[data-order="1"] { transition-delay:.14s; }
+body.loading .card[data-order="2"] { transition-delay:.20s; }
+body.loading .card[data-order="3"] { transition-delay:.26s; }
+body.loading .card[data-order="4"] { transition-delay:.32s; }
+body.loading .card[data-order="5"] { transition-delay:.38s; }
+
+@media (max-width:560px) {
+  .profile-card,.profile-inner { min-height:340px; }
+  .logo-ring { width:98px; height:98px; }
+  .profile-role { font-size:14px; }
+  .stack-section { margin-top:-30px; }
+  .wallet { height:500px; }
+  .card { --peek:56px; --base:-20px; height:122px; }
+  .card.active { height:152px; }
+  .card.shifted { transform:translateY(30px); }
+  .card.active .row { transform:translateY(16px); }
+  .row { padding:68px 14px 12px; }
+  .icon { width:40px; height:40px; flex-basis:40px; }
+  .copy strong { font-size:15px; }
+  .copy small { font-size:11px; }
+  footer { flex-direction:column; align-items:center; text-align:center; gap:4px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { transition:none !important; animation:none !important; }
+  body.loading .profile-card, body.loading .card { opacity:1; filter:none; transform:none; }
+}
+</style>
 </head>
-<body>
-  <div class="ambient" aria-hidden="true"></div>
+<body class="loading">
+<main class="page">
+  <section class="profile-card">
+    <div class="profile-inner">
+      <div class="logo-ring"><img src="IMG_0271.jpg" alt="BEY logo"></div>
+      <h1 class="profile-name">Burhan Emin Yenier</h1>
+      <p class="profile-role">Graphic Designer · 3D Artist · Game Developer</p>
+      <div class="profile-chip">CREATIVE PROFILE</div>
+    </div>
+  </section>
 
-  <main class="page-shell">
-    <section class="hero" aria-labelledby="name">
-      <div class="logo-orbit reveal" style="--delay:.03s">
-        <div class="logo-crop">
-          <img class="logo-image" src="IMG_0271.jpg" alt="BEY logo" decoding="async" />
-        </div>
-      </div>
+  <section class="stack-section">
+    <div class="wallet" id="wallet">
+      <article class="card behance" data-order="0" style="--i:0" data-url="https://www.behance.net/buremiyen">
+        <div class="row"><div class="left"><div class="icon"><span class="behance-mark">Bē</span></div><div class="copy"><strong>Behance</strong><small>buremiyen</small></div></div><div class="open">↗</div></div>
+      </article>
+      <article class="card linkedin" data-order="1" style="--i:1" data-url="https://www.linkedin.com/in/buremiyen">
+        <div class="row"><div class="left"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div><div class="copy"><strong>LinkedIn</strong><small>buremiyen</small></div></div><div class="open">↗</div></div>
+      </article>
+      <article class="card instagram" data-order="2" style="--i:2" data-url="https://www.instagram.com/buremiyen">
+        <div class="row"><div class="left"><div class="icon"><svg class="stroke" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.25"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.35" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></div><div class="copy"><strong>Instagram</strong><small>@buremiyen</small></div></div><div class="open">↗</div></div>
+      </article>
+      <article class="card github" data-order="3" style="--i:3" data-url="https://github.com/buremiyen">
+        <div class="row"><div class="left"><div class="icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0 1 8 4.69c.68 0 1.37.09 2.01.27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path></svg></div><div class="copy"><strong>GitHub</strong><small>@buremiyen</small></div></div><div class="open">↗</div></div>
+      </article>
+      <article class="card pinterest" data-order="4" style="--i:4" data-url="https://tr.pinterest.com/byenierart/">
+        <div class="row"><div class="left"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.42 7.62 11.16-.1-.95-.2-2.4.04-3.44.22-.94 1.4-5.96 1.4-5.96s-.35-.72-.35-1.78c0-1.66.96-2.91 2.16-2.91 1.02 0 1.52.77 1.52 1.69 0 1.03-.65 2.56-.99 3.99-.29 1.19.6 2.16 1.77 2.16 2.13 0 3.77-2.24 3.77-5.48 0-2.86-2.06-4.87-5.01-4.87-3.41 0-5.41 2.56-5.41 5.2 0 1.03.39 2.14.89 2.74.1.12.11.23.08.35-.09.38-.29 1.2-.33 1.36-.05.22-.17.27-.4.17-1.5-.69-2.43-2.88-2.43-4.65 0-3.77 2.75-7.25 7.92-7.25 4.16 0 7.39 2.97 7.39 6.92 0 4.14-2.61 7.46-6.23 7.46-1.21 0-2.36-.63-2.76-1.38l-.75 2.85c-.27 1.05-1 2.35-1.49 3.15 1.12.34 2.31.53 3.55.53 6.61 0 11.99-5.37 11.99-11.99C24 5.37 18.63 0 12 0z"/></svg></div><div class="copy"><strong>Pinterest</strong><small>@byenierart</small></div></div><div class="open">↗</div></div>
+      </article>
+      <article class="card email" data-order="5" style="--i:5" data-url="mailto:byenier.art@gmail.com">
+        <div class="row"><div class="left"><div class="icon"><svg class="stroke" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.25" y="5.25" width="17.5" height="13.5" rx="2.75"/><path d="m4.6 7.15 6.15 4.85a2 2 0 0 0 2.5 0l6.15-4.85"/></svg></div><div class="copy"><strong>Email</strong><small>byenier.art@gmail.com</small></div></div><div class="open">↗</div></div>
+      </article>
+    </div>
+    <div class="status" id="status"></div>
+    <div class="hint">Tap once to expand downward · tap outside to close · tap again to open</div>
+  </section>
 
-      <p class="kicker reveal" style="--delay:.11s">DESIGN · 3D · INTERACTIVE</p>
-      <h1 id="name" class="reveal" style="--delay:.17s">Burhan Emin Yenier</h1>
-      <p class="subtitle reveal" style="--delay:.24s">
-        Graphic Designer <span>·</span> 3D Artist <span>·</span> Game Developer
-      </p>
-      <p class="location reveal" style="--delay:.30s">Based in Türkiye</p>
-    </section>
+  <footer><span>© 2026 Burhan Emin Yenier</span><span>Ankara · Türkiye</span></footer>
+</main>
+<script>
+const wallet = document.getElementById('wallet');
+const cards = [...document.querySelectorAll('.card')];
+const status = document.getElementById('status');
+let active = null;
 
-    <section class="links-section" aria-labelledby="links-title">
-      <div class="section-head reveal" style="--delay:.35s">
-        <h2 id="links-title">Connect</h2>
-        <p>Portfolio & social</p>
-      </div>
+window.addEventListener('load', () => {
+  requestAnimationFrame(() => document.body.classList.remove('loading'));
+});
 
-      <div class="link-panel reveal" style="--delay:.40s">
-        <a class="link-row" href="https://www.behance.net/burhanyenier" target="_blank" rel="noreferrer" aria-label="Open Behance">
-          <span class="brand-icon behance" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M0 4.4804V19.243h7.1554c.6613 0 1.3078-.0832 1.9297-.248.6288-.1654 1.1905-.4203 1.6792-.7661.485-.3431.8784-.788 1.1677-1.3369.2862-.542.4294-1.187.4294-1.9354 0-.9232-.219-1.7109-.6675-2.369-.446-.6542-1.1187-1.1139-2.0274-1.3746.6674-.3161 1.1658-.7227 1.506-1.2177.3371-.4967.5058-1.1174.5058-1.8607 0-.6873-.1127-1.2677-.3375-1.7318-.2306-.4709-.552-.8452-.9632-1.1266-.4176-.2808-.912-.4857-1.4912-.6085-.5827-.1261-1.22-.1872-1.9264-.1872zm15.6674.9903v1.4567h5.9844V5.4707zM3.2509 6.9947h3.0407c.2873 0 .5683.0204.8359.0731.2728.0466.508.134.716.2595.2096.1205.3754.293.501.5132.1208.2203.1806.5038.1806.8474 0 .6189-.1811 1.0702-.5551 1.3426-.3778.2775-.8543.4147-1.4304.4147H3.2509zm15.545 1.2564c-.819 0-1.5587.1462-2.2294.436-.6705.2904-1.2463.6875-1.7318 1.1915-.4846.5011-.8535 1.0986-1.12 1.7909-.2612.69-.3942 1.4366-.3942 2.236 0 .8268.1284 1.5891.3835 2.2786.258.6923.6198 1.2822 1.0856 1.781.478.4967 1.046.8784 1.726 1.1497.6806.269 1.4382.4048 2.2803.4048 1.208 0 2.2446-.2771 3.0949-.8326.8599-.5528 1.4902-1.471 1.9058-2.7574h-2.585c-.1.3307-.359.649-.784.9467-.4295.2988-.9417.4492-1.534.4492-.8233 0-1.4588-.2168-1.8985-.6462-.4412-.4294-.7267-1.2289-.7267-2.0742h7.713c.0552-.8291-.0122-1.6218-.2045-2.3797-.1938-.7601-.5033-1.4365-.9393-2.029-.4355-.5931-.9904-1.0667-1.667-1.4165-.6788-.3543-1.4703-.5288-2.3747-.5288zm-.0887 2.217c.7209 0 1.3126.2092 1.6612.5954.3503.389.6065.9432.6766 1.6915h-4.7766c.0136-.2085.058-.4444.1339-.7045.0749-.2668.2039-.5164.3933-.753.1905-.2326.4402-.431.744-.5896.3109-.1608.6986-.2397 1.1676-.2397zM3.251 12.664h3.5334c.6996 0 1.2682.1602 1.6948.4836.4259.328.6405.8685.6405 1.6292 0 .3885-.0632.7094-.1946.9566-.131.2495-.3106.4466-.528.5896-.2172.1491-.4753.2498-.7661.3137-.2862.0639-.5905.092-.9115.092H3.2509z"/></svg>
-          </span>
-          <span class="link-copy"><strong>Behance</strong><small>Selected design & 3D work</small></span>
-          <span class="chevron" aria-hidden="true">↗</span>
-        </a>
+function clearActive() {
+  cards.forEach(c => c.classList.remove('active','shifted'));
+  active = null;
+  status.textContent = '';
+}
 
-        <a class="link-row" href="https://www.linkedin.com/in/buremiyen" target="_blank" rel="noreferrer" aria-label="Open LinkedIn">
-          <span class="brand-icon linkedin" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.027-3.036-1.849-3.036-1.851 0-2.135 1.445-2.135 2.939v5.666H9.358V9h3.413v1.561h.049c.476-.9 1.637-1.849 3.37-1.849 3.603 0 4.267 2.371 4.267 5.455zM5.337 7.433a2.063 2.063 0 1 1 0-4.127 2.063 2.063 0 0 1 0 4.127M7.119 20.45H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
-          </span>
-          <span class="link-copy"><strong>LinkedIn</strong><small>Experience & professional profile</small></span>
-          <span class="chevron" aria-hidden="true">↗</span>
-        </a>
+cards.forEach(card => {
+  card.addEventListener('click', e => {
+    e.stopPropagation();
+    if (active === card) {
+      const url = card.dataset.url;
+      if (url.startsWith('mailto:')) window.location.href = url;
+      else window.open(url, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    const selectedIndex = cards.indexOf(card);
+    cards.forEach((c, i) => {
+      c.classList.remove('active','shifted');
+      if (i > selectedIndex) c.classList.add('shifted');
+    });
+    card.classList.add('active');
+    active = card;
+    status.textContent = 'Selected · tap again to open';
+  });
+});
 
-        <a class="link-row" href="https://www.instagram.com/buremiyen" target="_blank" rel="noreferrer" aria-label="Open Instagram main account">
-          <span class="brand-icon instagram" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.25" fill="none" />
-              <circle cx="12" cy="12" r="4.1" fill="none" />
-              <circle cx="17.35" cy="6.7" r="1" stroke="none" fill="currentColor" />
-            </svg>
-          </span>
-          <span class="link-copy"><strong>Instagram</strong><small>@buremiyen · Main account</small></span>
-          <span class="chevron" aria-hidden="true">↗</span>
-        </a>
+wallet.addEventListener('click', e => {
+  if (e.target === wallet) clearActive();
+});
 
-        <a class="link-row" href="https://github.com/buremiyen" target="_blank" rel="noreferrer" aria-label="Open GitHub">
-          <span class="brand-icon github" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M10.226 17.284c-2.965-.36-5.054-2.493-5.054-5.256 0-1.123.404-2.336 1.078-3.144-.292-.741-.247-2.314.09-2.965.898-.112 2.111.36 2.83 1.01.853-.269 1.752-.404 2.853-.404 1.1 0 1.999.135 2.807.382.696-.629 1.932-1.1 2.83-.988.315.606.36 2.179.067 2.942.72.854 1.101 2 1.101 3.167 0 2.763-2.089 4.852-5.098 5.234.763.494 1.28 1.572 1.28 2.807v2.336c0 .674.561 1.056 1.235.786 4.066-1.55 7.255-5.615 7.255-10.646C23.5 6.188 18.334 1 11.978 1 5.62 1 .5 6.188.5 12.545c0 4.986 3.167 9.12 7.435 10.669.606.225 1.19-.18 1.19-.786V20.63a2.9 2.9 0 0 1-1.078.224c-1.483 0-2.359-.808-2.987-2.313-.247-.607-.517-.966-1.034-1.033-.27-.023-.359-.135-.359-.27 0-.27.45-.471.898-.471.652 0 1.213.404 1.797 1.235.45.651.921.943 1.483.943.561 0 .92-.202 1.437-.719.382-.381.674-.718.944-.943"/></svg>
-          </span>
-          <span class="link-copy"><strong>GitHub</strong><small>Projects & code</small></span>
-          <span class="chevron" aria-hidden="true">↗</span>
-        </a>
+document.addEventListener('click', e => {
+  if (!wallet.contains(e.target)) clearActive();
+});
 
-        <a class="link-row" href="https://tr.pinterest.com/byenierart/" target="_blank" rel="noreferrer" aria-label="Open Pinterest">
-          <span class="brand-icon pinterest" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026z"/></svg>
-          </span>
-          <span class="link-copy"><strong>Pinterest</strong><small>Visual archive & inspiration</small></span>
-          <span class="chevron" aria-hidden="true">↗</span>
-        </a>
-
-        <a class="link-row" href="mailto:byenier.art@gmail.com" aria-label="Send email">
-          <span class="brand-icon email" aria-hidden="true">
-            <svg class="email-symbol" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3.25" y="5.25" width="17.5" height="13.5" rx="2.75" />
-              <path d="m4.6 7.15 6.15 4.85a2 2 0 0 0 2.5 0l6.15-4.85" />
-            </svg>
-          </span>
-          <span class="link-copy"><strong>Email</strong><small>byenier.art@gmail.com</small></span>
-          <span class="chevron" aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </section>
-
-    <footer class="reveal" style="--delay:.52s">
-      <span>© 2026 Burhan Emin Yenier</span>
-      <span>Ankara · Türkiye</span>
-    </footer>
-  </main>
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') clearActive();
+});
+</script>
 </body>
 </html>
