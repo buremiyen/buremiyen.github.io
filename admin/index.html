@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09090b">
+<title>BEY Admin</title>
+<style>
+:root{--bg:#09090b;--panel:#151518;--line:rgba(255,255,255,.09);--text:#f5f5f7;--muted:#8e8e93;--accent:#7c3aed;--ok:#30d158;--danger:#ff453a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif}
+body{min-height:100svh;background:radial-gradient(circle at 12% -8%,rgba(124,58,237,.22),transparent 25%),radial-gradient(circle at 90% 18%,rgba(255,255,255,.05),transparent 22%),var(--bg);-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}button{cursor:pointer}.shell{width:min(1180px,100%);margin:0 auto;padding:18px 12px 60px}
+.top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:16px}.brand{display:flex;align-items:center;gap:11px}.mark{width:43px;height:43px;border-radius:14px;background:#fff;color:#000;display:grid;place-items:center;font-weight:900;letter-spacing:-.06em}.brand h1{margin:0;font-size:20px}.brand small{display:block;color:var(--muted);margin-top:2px}.pill{padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);font-size:11px;color:var(--muted)}.pill.ok{color:#b5f6c6;border-color:rgba(48,209,88,.28);background:rgba(48,209,88,.08)}
+.layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(320px,.8fr);gap:16px;align-items:start}.panel{background:rgba(21,21,24,.9);backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.28)}.head{padding:17px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:center}.head h2{font-size:16px;margin:0}.head p{font-size:11px;color:var(--muted);margin:4px 0 0}.sec{padding:17px;border-bottom:1px solid var(--line)}.sec:last-child{border-bottom:0}.sec h3{margin:0 0 12px;font-size:13px}
+label{display:block;font-size:10px;color:#c7c7cc;margin-bottom:6px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px}.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px}
+input[type=text],input[type=url],input[type=password],select{width:100%;height:42px;border:1px solid var(--line);border-radius:13px;background:#0f0f12;color:#fff;padding:0 11px;outline:none}input:focus,select:focus{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.12)}input[type=color]{width:100%;height:42px;border:1px solid var(--line);border-radius:13px;background:#0f0f12;padding:5px}
+.btn{min-height:41px;border:1px solid var(--line);border-radius:13px;background:#232328;color:#fff;padding:0 13px;font-weight:650}.btn.primary{background:var(--accent);border-color:transparent}.btn.ghost{background:transparent}.btn.danger{color:#ffaaa5}.btn:disabled{opacity:.45;cursor:not-allowed}.authbox{display:grid;gap:10px}.auth-actions{display:flex;gap:8px;flex-wrap:wrap}.notice{font-size:11px;line-height:1.5;color:var(--muted);background:rgba(255,255,255,.035);padding:10px 11px;border-radius:12px}
+.cards{display:grid;gap:10px}.edit-card{border:1px solid var(--line);border-radius:17px;background:#101013;overflow:hidden}.card-head{display:flex;align-items:center;justify-content:space-between;padding:11px;border-bottom:1px solid var(--line);gap:9px}.card-name{display:flex;align-items:center;gap:9px;min-width:0}.swatch{width:27px;height:27px;border-radius:8px;border:1px solid rgba(255,255,255,.15)}.card-name strong{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mini{display:flex;gap:5px}.iconbtn{width:33px;height:33px;border:1px solid var(--line);border-radius:10px;background:#1c1c20;color:#fff}.iconbtn.danger{color:#ff8c86}.card-body{padding:11px;display:grid;gap:10px}.toggle{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#c7c7cc}.toggle input{width:19px;height:19px}.add{width:100%;height:46px;margin-top:10px;border:1px dashed rgba(255,255,255,.2);border-radius:15px;background:transparent;color:#c7c7cc}
+.preview{position:sticky;top:12px}.phone{padding:11px;border-radius:29px;background:#030303;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.45)}.screen{min-height:550px;border-radius:21px;overflow:hidden;background:#000;padding:9px}.p-profile{min-height:188px;border-radius:21px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:16px}.p-logo{width:58px;height:58px;border-radius:50%;overflow:hidden;background:#050506;display:grid;place-items:center;margin-bottom:11px}.p-logo img{width:86%}.p-profile h4{font-size:19px;margin:0;letter-spacing:-.04em}.p-profile p{font-size:8px;opacity:.72;margin:7px 0 0}.p-chip{font-size:7px;margin-top:8px;padding:5px 8px;border:1px solid rgba(255,255,255,.12);border-radius:999px;opacity:.65}.p-cards{position:relative;margin-top:-17px;min-height:305px}.p-card{position:absolute;left:0;right:0;height:68px;border-radius:16px;border:1px solid rgba(255,255,255,.12);padding:0 10px 9px;display:flex;align-items:flex-end;box-shadow:0 10px 25px rgba(0,0,0,.3)}.p-card strong{font-size:9px}.p-card small{display:block;font-size:7px;opacity:.7;margin-top:2px}.p-foot{display:flex;justify-content:space-between;font-size:7px;color:#555;padding:8px 2px 0}
+.savebar{position:sticky;bottom:8px;margin-top:13px;border:1px solid var(--line);border-radius:17px;background:rgba(15,15,18,.9);backdrop-filter:blur(18px);padding:9px;display:flex;justify-content:space-between;align-items:center;gap:10px}.msg{font-size:11px;color:var(--muted)}.hidden{display:none!important}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.preview{position:static}.phone{max-width:430px;margin:auto}}
+@media(max-width:560px){.shell{padding:10px 8px 40px}.g2,.g3{grid-template-columns:1fr}.panel{border-radius:20px}.sec{padding:13px}.savebar{bottom:5px;align-items:stretch;flex-direction:column}.savebar .btn{width:100%}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top"><div class="brand"><div class="mark">BEY</div><div><h1>Site Admin</h1><small>buremiyen.github.io</small></div></div><div class="pill" id="authState">Giriş yapılmadı</div></header>
+
+<div class="layout">
+<div>
+<section class="panel">
+<div class="head"><div><h2>Yönetim Paneli</h2><p>Link, renk, profil ve sıralamayı buradan değiştir.</p></div><button class="btn ghost" id="reload">↻ Yenile</button></div>
+
+<div class="sec" id="loginSec">
+<h3>Admin girişi</h3>
+<div class="authbox">
+<div class="g2"><div><label>E-posta</label><input id="email" type="text" value="byenier.art@gmail.com"></div><div><label>Şifre</label><input id="password" type="password" autocomplete="current-password" placeholder="En az 8 karakter"></div></div>
+<div class="auth-actions"><button class="btn primary" id="login">Giriş yap</button><button class="btn" id="signup">İlk kez kullanıyorum</button></div>
+<div class="notice">İlk kullanımda “İlk kez kullanıyorum” ile hesabı oluştur. Supabase e-posta doğrulaması isterse gelen bağlantıyı onayla, sonra bu sayfaya dönüp normal giriş yap. Yalnızca <b>byenier.art@gmail.com</b> hesabı site ayarlarını değiştirebilir.</div>
+</div>
+</div>
+
+<div id="editor" class="hidden">
+<div class="sec"><h3>Profil</h3><div class="g2">
+<div><label>Ad Soyad</label><input id="profileName" type="text"></div>
+<div><label>Ünvan / açıklama</label><input id="profileRole" type="text"></div>
+<div><label>Rozet yazısı</label><input id="profileChip" type="text"></div>
+<div><label>Logo yolu / URL</label><input id="profileLogo" type="text"></div>
+</div></div>
+
+<div class="sec"><h3>Genel görünüm</h3><div class="g3">
+<div><label>Sayfa arka planı</label><input id="pageBg" type="color"></div>
+<div><label>Profil rengi 1</label><input id="profileC1" type="color"></div>
+<div><label>Profil rengi 2</label><input id="profileC2" type="color"></div>
+</div></div>
+
+<div class="sec"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px"><h3 style="margin:0">Link kartları</h3><span style="font-size:10px;color:var(--muted)">↑ ↓ ile sırala</span></div><div id="cards" class="cards"></div><button id="add" class="add">＋ Yeni link kartı ekle</button></div>
+
+<div class="sec"><h3>Alt bilgi</h3><div class="g2"><div><label>Sol metin</label><input id="footL" type="text"></div><div><label>Sağ metin</label><input id="footR" type="text"></div></div></div>
+</div>
+</section>
+
+<div class="savebar"><div class="msg" id="msg">Önce admin girişi yap.</div><div style="display:flex;gap:8px"><button class="btn" id="undo" disabled>Geri al</button><button class="btn primary" id="save" disabled>Kaydet</button></div></div>
+</div>
+
+<aside class="preview"><section class="panel"><div class="head"><div><h2>Canlı önizleme</h2><p>Kaydetmeden önce yaklaşık görünüm.</p></div></div><div class="sec"><div class="phone"><div class="screen" id="screen"><div class="p-profile" id="pp"><div class="p-logo"><img id="plogo" src="../IMG_0271.jpg" alt=""></div><h4 id="pname"></h4><p id="prole"></p><div class="p-chip" id="pchip"></div></div><div id="pcards" class="p-cards"></div><div class="p-foot"><span id="pfl"></span><span id="pfr"></span></div></div></div></div></section></aside>
+</div>
+</div>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+const URL='https://kaajocwjavntyxxncrkg.supabase.co';
+const KEY='sb_publishable_rgiEC1gb5Plbmgg5cwRx8g_GEY1Xicq';
+const ADMIN_EMAIL='byenier.art@gmail.com';
+const supabase=createClient(URL,KEY);
+const $=id=>document.getElementById(id);
+const clone=o=>JSON.parse(JSON.stringify(o));
+let config=null,original=null,session=null;
+
+function note(t,ok=false){$('msg').textContent=t;$('msg').style.color=ok?'#8df0a8':'var(--muted)'}
+function validHex(v,f='#333333'){return /^#[0-9a-f]{6}$/i.test(v||'')?v:f}
+
+async function loadConfig(){
+  const {data,error}=await supabase.from('portfolio_site_config').select('config').eq('id',1).single();
+  if(error)throw error;
+  config=clone(data.config);original=clone(config);fill();renderCards();preview();
+}
+function fill(){
+  const p=config.profile||{},t=config.theme||{},f=config.footer||{};
+  $('profileName').value=p.name||'';$('profileRole').value=p.role||'';$('profileChip').value=p.chip||'';$('profileLogo').value=p.logo||'IMG_0271.jpg';
+  $('pageBg').value=validHex(t.pageBackground,'#000000');$('profileC1').value=validHex(t.profileColor1,'#171719');$('profileC2').value=validHex(t.profileColor2,'#080809');
+  $('footL').value=f.left||'';$('footR').value=f.right||'';
+}
+function sync(){
+  if(!config)return;config.profile=config.profile||{};config.theme=config.theme||{};config.footer=config.footer||{};
+  config.profile.name=$('profileName').value.trim();config.profile.role=$('profileRole').value.trim();config.profile.chip=$('profileChip').value.trim();config.profile.logo=$('profileLogo').value.trim()||'IMG_0271.jpg';
+  config.theme.pageBackground=$('pageBg').value;config.theme.profileColor1=$('profileC1').value;config.theme.profileColor2=$('profileC2').value;
+  config.footer.left=$('footL').value;config.footer.right=$('footR').value;
+}
+function field(name,input){const d=document.createElement('div'),l=document.createElement('label');l.textContent=name;d.append(l,input);return d}
+function row2(a,b){const d=document.createElement('div');d.className='g2';d.append(a,b);return d}
+function txt(v,fn,type='text'){const i=document.createElement('input');i.type=type;i.value=v||'';i.oninput=()=>{fn(i.value);preview()};return i}
+function col(v,fn){const i=document.createElement('input');i.type='color';i.value=validHex(v);i.oninput=()=>{fn(i.value);preview()};return i}
+function icons(v,fn){const s=document.createElement('select');['link','behance','linkedin','instagram','github','pinterest','youtube','tiktok','email','cv'].forEach(x=>{const o=document.createElement('option');o.value=x;o.textContent=x[0].toUpperCase()+x.slice(1);s.append(o)});s.value=v||'link';s.onchange=()=>{fn(s.value);preview()};return s}
+function mini(t,fn,danger=false){const b=document.createElement('button');b.className='iconbtn'+(danger?' danger':'');b.type='button';b.textContent=t;b.onclick=fn;return b}
+
+function renderCards(){
+  const host=$('cards');host.innerHTML='';
+  (config.cards||[]).forEach((it,i)=>{
+    const box=document.createElement('div');box.className='edit-card';
+    const hd=document.createElement('div');hd.className='card-head';
+    const left=document.createElement('div');left.className='card-name';const sw=document.createElement('div');sw.className='swatch';sw.style.background='linear-gradient(145deg,'+(it.color1||'#333')+','+(it.color2||'#111')+')';const st=document.createElement('strong');st.textContent=it.label||'Yeni Link';left.append(sw,st);
+    const ma=document.createElement('div');ma.className='mini';ma.append(mini('↑',()=>move(i,-1)),mini('↓',()=>move(i,1)),mini('×',()=>remove(i),true));hd.append(left,ma);
+    const bd=document.createElement('div');bd.className='card-body';
+    bd.append(row2(field('Başlık',txt(it.label,v=>{it.label=v;st.textContent=v||'Yeni Link'})),field('Alt yazı / kullanıcı adı',txt(it.subtitle,v=>it.subtitle=v))));
+    bd.append(field('Bağlantı',txt(it.url,v=>it.url=v,'url')));
+    const g=document.createElement('div');g.className='g3';
+    g.append(field('İkon',icons(it.icon,v=>it.icon=v)),field('Renk 1',col(it.color1,v=>{it.color1=v;sw.style.background='linear-gradient(145deg,'+v+','+(it.color2||v)+')'})),field('Renk 2',col(it.color2,v=>{it.color2=v;sw.style.background='linear-gradient(145deg,'+(it.color1||v)+','+v+')'})));bd.append(g);
+    if(it.type==='cv'){const a=it.actions||(it.actions=[{label:'Türkçe CV ↗',url:'cv-tr.html'},{label:'English CV ↗',url:'cv-en.html'}]);bd.append(row2(field('Türkçe CV',txt(a[0]?.url||'cv-tr.html',v=>{if(a[0])a[0].url=v})),field('English CV',txt(a[1]?.url||'cv-en.html',v=>{if(a[1])a[1].url=v}))))}
+    const tg=document.createElement('div');tg.className='toggle';const span=document.createElement('span');span.textContent='Kart sitede görünsün';const ck=document.createElement('input');ck.type='checkbox';ck.checked=it.enabled!==false;ck.onchange=()=>{it.enabled=ck.checked;preview()};tg.append(span,ck);bd.append(tg);
+    box.append(hd,bd);host.append(box);
+  });
+}
+function move(i,d){const n=i+d;if(n<0||n>=config.cards.length)return;[config.cards[i],config.cards[n]]=[config.cards[n],config.cards[i]];renderCards();preview()}
+function remove(i){if(!confirm('Bu kart silinsin mi?'))return;config.cards.splice(i,1);renderCards();preview()}
+function add(){config.cards.push({id:'link-'+Date.now(),label:'Yeni Link',subtitle:'@kullanici',url:'https://',icon:'link',color1:'#7c3aed',color2:'#312e81',textColor:'#ffffff',enabled:true});renderCards();preview()}
+
+function preview(){
+  if(!config)return;sync();const p=config.profile||{},t=config.theme||{};
+  $('screen').style.background=t.pageBackground||'#000';$('pp').style.background='linear-gradient(145deg,'+(t.profileColor1||'#171719')+','+(t.profileColor2||'#080809')+')';
+  $('pname').textContent=p.name||'';$('prole').textContent=p.role||'';$('pchip').textContent=p.chip||'';$('pchip').style.display=p.chip?'block':'none';
+  const logo=p.logo||'IMG_0271.jpg';$('plogo').src=/^(https?:|data:|\/)/.test(logo)?logo:'../'+logo;
+  const h=$('pcards');h.innerHTML='';(config.cards||[]).filter(x=>x.enabled!==false).forEach((it,i)=>{const d=document.createElement('div');d.className='p-card';d.style.top=(i*36)+'px';d.style.zIndex=99-i;d.style.background='linear-gradient(145deg,'+(it.color1||'#333')+','+(it.color2||'#111')+')';d.style.color=it.textColor||'#fff';const x=document.createElement('div'),s=document.createElement('strong'),sm=document.createElement('small');s.textContent=it.label||'Link';sm.textContent=it.subtitle||'';x.append(s,sm);d.append(x);h.append(d)});
+  $('pfl').textContent=config.footer?.left||'';$('pfr').textContent=config.footer?.right||'';
+}
+async function refreshSessionUI(){
+  const {data}=await supabase.auth.getSession();session=data.session;
+  const allowed=session?.user?.email?.toLowerCase()===ADMIN_EMAIL;
+  $('authState').textContent=allowed?'● Admin bağlı':'Giriş yapılmadı';$('authState').classList.toggle('ok',!!allowed);
+  $('loginSec').classList.toggle('hidden',!!allowed);$('editor').classList.toggle('hidden',!allowed);$('save').disabled=!allowed;$('undo').disabled=!allowed;
+  if(allowed){await loadConfig();note('Hazır. Değişiklikleri kaydedebilirsin.',true)}
+}
+async function login(){
+  const email=$('email').value.trim().toLowerCase(),password=$('password').value;
+  if(email!==ADMIN_EMAIL){note('Bu e-posta admin olarak yetkili değil.');return}
+  const {error}=await supabase.auth.signInWithPassword({email,password});if(error){note(error.message);return}await refreshSessionUI();
+}
+async function signup(){
+  const email=$('email').value.trim().toLowerCase(),password=$('password').value;
+  if(email!==ADMIN_EMAIL){note('Yalnızca admin e-postasıyla hesap oluşturulabilir.');return}
+  if(password.length<8){note('Şifre en az 8 karakter olmalı.');return}
+  const {data,error}=await supabase.auth.signUp({email,password});
+  if(error){note(error.message);return}
+  if(data.session){await refreshSessionUI()}else note('Hesap oluşturuldu. E-postana gelen doğrulama bağlantısını onayla, sonra buraya dönüp giriş yap.',true);
+}
+async function save(){
+  sync();$('save').disabled=true;$('save').textContent='Kaydediliyor…';
+  const {error}=await supabase.from('portfolio_site_config').update({config}).eq('id',1);
+  $('save').textContent='Kaydet';$('save').disabled=false;
+  if(error){note(error.message);return}original=clone(config);note('Kaydedildi ✅ Ana site birkaç saniye içinde yeni ayarları gösterecek.',true);
+}
+function undo(){config=clone(original);fill();renderCards();preview();note('Kaydedilmemiş değişiklikler geri alındı.')}
+async function reload(){try{await loadConfig();note('Canlı ayarlar yeniden yüklendi.',true)}catch(e){note(e.message)}}
+['profileName','profileRole','profileChip','profileLogo','pageBg','profileC1','profileC2','footL','footR'].forEach(id=>$(id).addEventListener('input',preview));
+$('login').onclick=login;$('signup').onclick=signup;$('save').onclick=save;$('undo').onclick=undo;$('reload').onclick=reload;$('add').onclick=add;
+supabase.auth.onAuthStateChange(()=>refreshSessionUI());
+await loadConfig().catch(e=>note(e.message));
+await refreshSessionUI();
+</script>
+</body>
+</html>
