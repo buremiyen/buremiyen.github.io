@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">\n<meta http-equiv="Pragma" content="no-cache">\n<meta http-equiv="Expires" content="0">
 <meta name="theme-color" content="#09090b">
 <title>BEY Admin</title>
 <style>
@@ -25,7 +25,7 @@ input[type=text],input[type=url],input[type=password],select{width:100%;height:4
 </head>
 <body>
 <div class="shell">
-<header class="top"><div class="brand"><div class="mark">BEY</div><div><h1>Site Admin</h1><small>buremiyen.github.io</small></div></div><div class="pill" id="authState">Giriş yapılmadı</div></header>
+<header class="top"><div class="brand"><div class="mark">BEY</div><div><h1>Site Admin</h1><small>buremiyen.github.io · Admin v2</small></div></div><div class="pill" id="authState">Giriş yapılmadı</div></header>
 
 <div class="layout">
 <div>
@@ -72,7 +72,7 @@ input[type=text],input[type=url],input[type=password],select{width:100%;height:4
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const URL='https://kaajocwjavntyxxncrkg.supabase.co';
 const KEY='sb_publishable_rgiEC1gb5Plbmgg5cwRx8g_GEY1Xicq';
-const ADMIN_EMAILS=['byenier.art@gmail.com','buremiyen@gmail.com'];
+const ADMIN_EMAILS=['buremiyen.art@gmail.com','buremiyen@gmail.com'];
 const supabase=createClient(URL,KEY);
 const $=id=>document.getElementById(id);
 const clone=o=>JSON.parse(JSON.stringify(o));
