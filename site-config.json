@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "profile": {
+    "name": "Burhan Emin Yenier",
+    "role": "Graphic Designer · 3D Artist · Game Developer",
+    "chip": "CREATIVE PROFILE",
+    "logo": "IMG_0271.jpg"
+  },
+  "theme": {
+    "pageBackground": "#000000",
+    "profileColor1": "#171719",
+    "profileColor2": "#080809",
+    "profileText": "#f5f5f7"
+  },
+  "cards": [
+    {
+      "id": "behance",
+      "label": "Behance",
+      "subtitle": "buremiyen",
+      "url": "https://www.behance.net/buremiyen",
+      "icon": "behance",
+      "color1": "#1769ff",
+      "color2": "#0d3c94",
+      "textColor": "#ffffff",
+      "enabled": true
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "subtitle": "buremiyen",
+      "url": "https://www.linkedin.com/in/buremiyen",
+      "icon": "linkedin",
+      "color1": "#0a66c2",
+      "color2": "#07345f",
+      "textColor": "#ffffff",
+      "enabled": true
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "subtitle": "@buremiyen",
+      "url": "https://www.instagram.com/buremiyen",
+      "icon": "instagram",
+      "color1": "#833ab4",
+      "color2": "#f77737",
+      "textColor": "#ffffff",
+      "enabled": true
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "subtitle": "@buremiyen",
+      "url": "https://github.com/buremiyen",
+      "icon": "github",
+      "color1": "#2b3137",
+      "color2": "#0d1117",
+      "textColor": "#ffffff",
+      "enabled": true
+    },
+    {
+      "id": "pinterest",
+      "label": "Pinterest",
+      "subtitle": "@byenierart",
+      "url": "https://tr.pinterest.com/byenierart/",
+      "icon": "pinterest",
+      "color1": "#e60023",
+      "color2": "#860014",
+      "textColor": "#ffffff",
+      "enabled": true
+    },
+    {
+      "id": "cv",
+      "label": "CV / Resume",
+      "subtitle": "Türkçe · English",
+      "url": "",
+      "icon": "cv",
+      "color1": "#4b4b50",
+      "color2": "#242429",
+      "textColor": "#ffffff",
+      "enabled": true,
+      "type": "cv",
+      "actions": [
+        {
+          "label": "Türkçe CV ↗",
+          "url": "cv-tr.html"
+        },
+        {
+          "label": "English CV ↗",
+          "url": "cv-en.html"
+        }
+      ]
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "subtitle": "byenier.art@gmail.com",
+      "url": "mailto:byenier.art@gmail.com",
+      "icon": "email",
+      "color1": "#38383b",
+      "color2": "#171719",
+      "textColor": "#ffffff",
+      "enabled": true
+    }
+  ],
+  "footer": {
+    "left": "© 2026 Burhan Emin Yenier",
+    "right": "Ankara · Türkiye"
+  },
+  "ui": {
+    "hint": "Tap once to expand downward · tap outside to close · tap again to open"
+  }
+}
